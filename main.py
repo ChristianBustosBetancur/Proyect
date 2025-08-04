@@ -1,12 +1,12 @@
+class Product:
+    def __init__(self, name, quantity, price):
+        self.Name = name
+        self.Quantity = quantity
+        self.Price = price
 Products = {
-
-    #Product : {Quantity : q, Price: p},
-    'Water': {'Quantity': 10,
-              'Price': 3000
-    },
-
-    'Apple': {'Quantity': 5,
-              'Price': 500},
+    #Instantiation of Products
+    'Water': Product('Water', 10, 3000),
+    'Apple': Product('Apple', 5, 500),
 }
 
 
@@ -21,23 +21,34 @@ def buy():
 
         if product == '':
             break
-        quant = int(input("How much would you like?"))
-        if product in Products and Products[product]['Quantity'] >= quant:
-            Products[product]['Quantity'] -= quant
-            totalPrice += Products[product]['Price'] * quant
-            car[product] = totalPrice
+
+        if product in Products:
+            try:
+                quant = int(input("How much would you like? "))
+            except ValueError:
+                print("Please enter a valid integer amount.")
+                continue
+            prod = Products[product]
+            if prod.Quantity >= quant:
+                prod.Quantity -= quant
+                totalPrice += prod.Price * quant
+                car[product] = totalPrice
+
+            else:
+                print('Theres not enough products!')
         else:
-            print('Theres no products!')
+            print('Invalid Product, it doesnt exist!')
         #Add exceptions! asap
 
 
     print(totalPrice)
     print(car)
-    print(Products)
+    ShowInventory()
 
 def ShowInventory():
     print("Inv Logic")
-    print(Products)
+    for key,prod in Products.items():
+        print(key,'Quantity:', prod.Quantity, 'Price:', prod.Price)
 
 
 def Menu():
