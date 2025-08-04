@@ -1,3 +1,44 @@
+Products = {
+
+    #Product : {Quantity : q, Price: p},
+    'Water': {'Quantity': 10,
+              'Price': 3000
+    },
+
+    'Apple': {'Quantity': 5,
+              'Price': 500},
+}
+
+
+def buy():
+    car = {}
+    totalPrice = 0
+    while True:
+
+        #add a switch and change query for product, and query would be sometn else...
+        #query =
+        product = input("What product would u like to buy?")
+
+        if product == '':
+            break
+        quant = int(input("How much would you like?"))
+        if product in Products and Products[product]['Quantity'] >= quant:
+            Products[product]['Quantity'] -= quant
+            totalPrice += Products[product]['Price'] * quant
+            car[product] = totalPrice
+        else:
+            print('Theres no products!')
+        #Add exceptions! asap
+
+
+    print(totalPrice)
+    print(car)
+    print(Products)
+
+def ShowInventory():
+    print("Inv Logic")
+    print(Products)
+
 
 def Menu():
     while True:
