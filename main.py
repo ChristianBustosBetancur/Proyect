@@ -49,9 +49,9 @@ def Menu():
         option = input("Select an option :D!!! :  ")
 
         if option == "1":
-            #buy()               #buy!
+            buy()               #buy!
         elif option == "2":
-            #ShowInventory()  #fix
+            ShowInventory()  #fix
         elif option == "3":
             print("See u soon!!!")
             break
