@@ -1,0 +1,4 @@
+{
+  "Water": { "Name": "Water", "Quantity": 11, "Price": 3000 },
+  "Apple": { "Name": "Apple", "Quantity": 5, "Price": 500 }
+}
